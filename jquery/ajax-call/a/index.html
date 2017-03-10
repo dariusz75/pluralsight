@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+ 
+  <button id="load-1" type="button">Load heading 1</button>
+  <button id="load-2" type="button">Load heading 2</button>
+  <button id="load-3" type="button">Load heading 3</button>
+ 	
+ 	<div id="output-1"></div> 
+ 	<div id="output-2"></div> 
+ 	<div id="output-3"></div> 
+
+
+  
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script> 
+<script>
+    $(document).ready(function(){
+
+  $('#load-1').on('click', function() {
+  	$('#output-1').load('to-load.html h1');
+  });
+
+  $('#load-2').on('click', function() {
+  	$('#output-2').load('to-load.html h2');
+  });
+
+  $('#load-3').on('click', function() {
+  	$('#output-3').load('to-load.html h3');
+  });
+  
+});
+</script>
+</body>
+</html>
