@@ -19,21 +19,24 @@
   
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script> 
 <script>
-    $(document).ready(function(){
+  $(document).ready(function(){
 
-  $('#load-1').on('click', function() {
-  	$('#output-1').load('to-load.html h1');
-  });
+    $('#load-1').on('click', function() {
+      $.get('to-load.html', function(data) {
+        $('#output-1').html(data);
+      })
+    	
+    });
 
-  $('#load-2').on('click', function() {
-  	$('#output-2').load('to-load.html h2');
-  });
+    $('#load-2').on('click', function() {
+    	$('#output-2').load('to-load.html h2');
+    });
 
-  $('#load-3').on('click', function() {
-  	$('#output-3').load('to-load.html h3');
-  });
+    $('#load-3').on('click', function() {
+    	$('#output-3').load('to-load.html h3');
+    });
   
-});
+  });
 </script>
 </body>
 </html>
