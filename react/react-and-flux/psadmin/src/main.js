@@ -19,6 +19,7 @@ var App = React.createClass({
 
 		return (
 			<div>
+			<Header />
 			<Child />
 			</div>
 			);
@@ -33,4 +34,3 @@ function render() {
 window.addEventListener('hashchange', render);
 render();
 
-React.render(<Home />, selector);

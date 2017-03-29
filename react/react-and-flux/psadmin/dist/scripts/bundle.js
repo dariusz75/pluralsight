@@ -29202,6 +29202,7 @@ var App = React.createClass({displayName: "App",
 
 		return (
 			React.createElement("div", null, 
+			React.createElement(Header, null), 
 			React.createElement(Child, null)
 			)
 			);
@@ -29215,7 +29216,5 @@ function render() {
 
 window.addEventListener('hashchange', render);
 render();
-
-React.render(React.createElement(Home, null), selector);
 
 },{"./components/about/aboutPage":158,"./components/common/header":159,"./components/homePage":160,"jquery":1,"react":157}]},{},[161]);
