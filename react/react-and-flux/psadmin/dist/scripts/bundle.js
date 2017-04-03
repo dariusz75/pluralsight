@@ -29152,7 +29152,9 @@ var Header = React.createClass({displayName: "Header",
 					React.createElement("a", {href: "/", className: "navbar-brand"}, "LOGO"), 
 					React.createElement("ul", {className: "nav navbar-nav"}, 
 						React.createElement("li", null, React.createElement("a", {href: "/"}, "HOME")), 
-						React.createElement("li", null, React.createElement("a", {href: "/#about"}, "ABOUT"))
+						React.createElement("li", null, React.createElement("a", {href: "/#about"}, "ABOUT")), 
+						React.createElement("li", null, React.createElement("a", {href: "/#info"}, "INFO")), 
+						React.createElement("li", null, React.createElement("a", {href: "/#contact"}, "CONTACT"))
 					)
 				)
 			)
@@ -29167,11 +29169,31 @@ module.exports = Header;
 
 var React = require('react');
 
+var Contact = React.createClass({displayName: "Contact",
+	render: function() {
+		return (
+			React.createElement("div", {className: "jumbotron"}, 
+				React.createElement("h1", null, "Contact"), 
+				React.createElement("h2", null, "This is Contact Page"), 
+				React.createElement("p", null, "ReactJS, React Router and Flux web application. ")
+			)
+			);
+	}
+});
+
+module.exports = Contact;
+
+},{"react":157}],161:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
 var Home = React.createClass({displayName: "Home",
 	render: function() {
 		return (
 			React.createElement("div", {className: "jumbotron"}, 
-				React.createElement("h1", null, "Pluralsight Administration"), 
+				React.createElement("h1", null, "Home"), 
+				React.createElement("h2", null, "Pluralsight Administration"), 
 				React.createElement("p", null, "ReactJS, React Router and Flux web application. ")
 			)
 			);
@@ -29180,11 +29202,32 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":157}],161:[function(require,module,exports){
+},{"react":157}],162:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var Info = React.createClass({displayName: "Info",
+	render: function() {
+		return (
+			React.createElement("div", {className: "jumbotron"}, 
+				React.createElement("h1", null, "Info"), 
+				React.createElement("h2", null, "This is Info Page"), 
+				React.createElement("p", null, "ReactJS, React Router and Flux web application. ")
+			)
+			);
+	}
+});
+
+module.exports = Info;
+
+},{"react":157}],163:[function(require,module,exports){
 
 $ = jQuery = require('jquery');
 var React = require('react');
 var Home = require('./components/homePage');
+var Info = require('./components/infoPage');
+var Contact = require('./components/contactPage');
 var About = require('./components/about/aboutPage');
 var Header = require('./components/common/header');
 
@@ -29196,6 +29239,10 @@ var App = React.createClass({displayName: "App",
 
 		switch(this.props.route) {
 			case 'about' : Child = About;
+			break;
+			case 'info' : Child = Info;
+			break;
+			case 'contact' : Child = Contact;
 			break;
 			default: Child = Home;
 		}
@@ -29217,4 +29264,4 @@ function render() {
 window.addEventListener('hashchange', render);
 render();
 
-},{"./components/about/aboutPage":158,"./components/common/header":159,"./components/homePage":160,"jquery":1,"react":157}]},{},[161]);
+},{"./components/about/aboutPage":158,"./components/common/header":159,"./components/contactPage":160,"./components/homePage":161,"./components/infoPage":162,"jquery":1,"react":157}]},{},[163]);
