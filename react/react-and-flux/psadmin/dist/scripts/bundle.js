@@ -32074,7 +32074,7 @@ var React = require('react');
 var About = React.createClass({displayName: "About",
 	render: function() {
 		return (
-			React.createElement("div", null, 
+			React.createElement("div", {className: "jumbotron"}, 
 				React.createElement("h1", null, "About"), 
 				React.createElement("p", null, 
 					"This application using following technologies:", 
@@ -32123,6 +32123,8 @@ module.exports = App;
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Header = React.createClass({displayName: "Header",
 	render: function() {
@@ -32131,10 +32133,10 @@ var Header = React.createClass({displayName: "Header",
 				React.createElement("div", {className: "container-fluid"}, 
 					React.createElement("a", {href: "/", className: "navbar-brand"}, "LOGO"), 
 					React.createElement("ul", {className: "nav navbar-nav"}, 
-						React.createElement("li", null, React.createElement("a", {href: "/"}, "HOME")), 
-						React.createElement("li", null, React.createElement("a", {href: "/#about"}, "ABOUT")), 
-						React.createElement("li", null, React.createElement("a", {href: "/#info"}, "INFO")), 
-						React.createElement("li", null, React.createElement("a", {href: "/#contact"}, "CONTACT"))
+						React.createElement("li", null, React.createElement(Link, {to: "app"}, "HOME")), 
+						React.createElement("li", null, React.createElement(Link, {to: "about"}, "ABOUT")), 
+						React.createElement("li", null, React.createElement(Link, {to: "info"}, "INFO")), 
+						React.createElement("li", null, React.createElement(Link, {to: "contact"}, "CONTACT"))
 					)
 				)
 			)
@@ -32144,7 +32146,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":196}],200:[function(require,module,exports){
+},{"react":196,"react-router":27}],200:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
