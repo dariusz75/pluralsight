@@ -16,4 +16,4 @@ var NotFoundPage = React.createClass({
 	}
 });
 
-module.exports = Contact;
+module.exports = NotFoundPage;
