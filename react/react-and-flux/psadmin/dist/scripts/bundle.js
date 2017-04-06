@@ -49211,6 +49211,16 @@ module.exports = {
 	authors:
 	[
 		{
+			id: 'dariusz-franczak',
+			firstName: 'Driusz',
+			lastName: 'Franczak'
+		},
+		{
+			id: 'marian-tekiela',
+			firstName: 'Marian',
+			lastName: 'Tekiela'
+		},
+		{
 			id: 'cory-house',
 			firstName: 'Cory',
 			lastName: 'House'
@@ -49281,11 +49291,37 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"./common/header":203,"jquery":1,"react":197,"react-router":28}],202:[function(require,module,exports){
+},{"./common/header":205,"jquery":1,"react":197,"react-router":28}],202:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var AuthorForm = React.createClass({displayName: "AuthorForm",
+	render: function() {
+		return (
+			React.createElement("form", null, 
+				React.createElement("h1", null, "Manage Author"), 
+				React.createElement("label", {htmlFor: "firstName"}, "First Name"), 
+				React.createElement("input", {type: "text", name: "firstName", className: "form-control", palceholder: "First Name", ref: "firstName", value: ""}), 
+				React.createElement("br", null), 
+				React.createElement("input", {type: "text", name: "lastName", className: "form-control", palceholder: "Last Name", ref: "lastName", value: ""}), 
+				React.createElement("br", null), 
+				React.createElement("input", {type: "submit", value: "Save", className: "btn btn-default"})
+			)
+			);
+	}
+});
+
+
+module.exports = AuthorForm;
+
+},{"react":197}],203:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
 var AuthorApi = require('../../api/authorApi');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Authors = React.createClass({displayName: "Authors",
 	getInitialState: function() {
@@ -49313,6 +49349,7 @@ var Authors = React.createClass({displayName: "Authors",
 		return (
 				React.createElement("div", {className: "jumbotron"}, 
 					React.createElement("h1", null, "Authors"), 
+					React.createElement(Link, {to: "addAuthor", className: "btn btn-default"}, "Add Author"), 
 					React.createElement("table", {className: "table"}, 
 						React.createElement("thead", null, 
 							React.createElement("th", null, "ID"), 
@@ -49329,7 +49366,23 @@ var Authors = React.createClass({displayName: "Authors",
 
 module.exports = Authors;
 
-},{"../../api/authorApi":198,"react":197}],203:[function(require,module,exports){
+},{"../../api/authorApi":198,"react":197,"react-router":28}],204:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var AuthorForm = require('./authorForm');
+
+var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
+	render: function() {
+		return (
+				React.createElement(AuthorForm, null)
+			);
+	}
+});
+
+module.exports = ManageAuthorPage;
+
+},{"./authorForm":202,"react":197}],205:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49357,7 +49410,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":197,"react-router":28}],204:[function(require,module,exports){
+},{"react":197,"react-router":28}],206:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49376,7 +49429,7 @@ var Contact = React.createClass({displayName: "Contact",
 
 module.exports = Contact;
 
-},{"react":197}],205:[function(require,module,exports){
+},{"react":197}],207:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49395,7 +49448,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":197}],206:[function(require,module,exports){
+},{"react":197}],208:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49414,7 +49467,7 @@ var Info = React.createClass({displayName: "Info",
 
 module.exports = Info;
 
-},{"react":197}],207:[function(require,module,exports){
+},{"react":197}],209:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49435,7 +49488,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 
 module.exports = NotFoundPage;
 
-},{"react":197,"react-router":28}],208:[function(require,module,exports){
+},{"react":197,"react-router":28}],210:[function(require,module,exports){
 
 $ = jQuery = require('jquery');
 var React = require('react');
@@ -49446,7 +49499,7 @@ Router.run(routes,  function(Handler) {
 	React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":209,"jquery":1,"react":197,"react-router":28}],209:[function(require,module,exports){
+},{"./routes":211,"jquery":1,"react":197,"react-router":28}],211:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49461,6 +49514,7 @@ var routes = (
 		React.createElement(DefaultRoute, {handler: require('./components/homePage')}), 
 		React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')}), 
 		React.createElement(Route, {name: "authors", handler: require('./components/authors/authorPage')}), 
+		React.createElement(Route, {name: "addAuthor", path: "author", handler: require('./components/authors/manageAuthorPage')}), 
 		React.createElement(Route, {name: "info", handler: require('./components/infoPage')}), 
 		React.createElement(Route, {name: "contact", handler: require('./components/contactPage')}), 
 		React.createElement(NotFoundRoute, {handler: require('./components/notFoundPage')}), 
@@ -49472,4 +49526,4 @@ var routes = (
 
 module.exports = routes;
 
-},{"./components/about/aboutPage":200,"./components/app":201,"./components/authors/authorPage":202,"./components/contactPage":204,"./components/homePage":205,"./components/infoPage":206,"./components/notFoundPage":207,"react":197,"react-router":28}]},{},[208]);
+},{"./components/about/aboutPage":200,"./components/app":201,"./components/authors/authorPage":203,"./components/authors/manageAuthorPage":204,"./components/contactPage":206,"./components/homePage":207,"./components/infoPage":208,"./components/notFoundPage":209,"react":197,"react-router":28}]},{},[210]);

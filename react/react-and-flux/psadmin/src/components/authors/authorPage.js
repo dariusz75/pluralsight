@@ -2,6 +2,8 @@
 
 var React = require('react');
 var AuthorApi = require('../../api/authorApi');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Authors = React.createClass({
 	getInitialState: function() {
@@ -29,6 +31,7 @@ var Authors = React.createClass({
 		return (
 				<div className="jumbotron">
 					<h1>Authors</h1>
+					<Link to="addAuthor" className="btn btn-default">Add Author</Link>
 					<table className="table">
 						<thead>
 							<th>ID</th>
