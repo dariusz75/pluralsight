@@ -8,9 +8,9 @@ var AuthorForm = React.createClass({
 			<form>
 				<h1>Manage Author</h1>
 				<label htmlFor="firstName">First Name</label>
-				<input type="text" name="firstName" className="form-control" palceholder="First Name" ref="firstName" value="" />
+				<input type="text" name="firstName" className="form-control" palceholder="First Name" ref="firstName" onChange={this.props.onChange} value={this.props.author.firstName} />
 				<br />
-				<input type="text" name="lastName" className="form-control" palceholder="Last Name" ref="lastName" value="" />
+				<input type="text" name="lastName" className="form-control" palceholder="Last Name" ref="lastName" onChange={this.props.onChange} value={this.props.author.lastName} />
 				<br />
 				<input type="submit" value="Save" className="btn btn-default" />
 			</form>
