@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var gulp = require('gulp');
 var connect = require('gulp-connect'); // Runs local web server
@@ -20,7 +20,8 @@ var config = {
 		dist: './dist',
 		css: [
 			'node_modules/bootstrap/dist/css/bootstrap.min.css',
-			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+			'node_modules/toastr/toastr.css'
 		]
 	}
 }
