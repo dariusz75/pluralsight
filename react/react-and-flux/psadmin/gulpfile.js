@@ -21,7 +21,7 @@ var config = {
 		css: [
 			'node_modules/bootstrap/dist/css/bootstrap.min.css',
 			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
-			'node_modules/toastr/toastr.css'
+			'node_modules/toastr/toastr.css' 
 		]
 	}
 }
@@ -36,7 +36,7 @@ gulp.task('connect', function() {
 	});
 }); 
 
-
+// Task to open the given file on a server
 gulp.task('open', ['connect'], function() {
 	gulp.src('dist/index.html')
 	.pipe(open({ url: config.devBaseUrl + ':' + config.port + '/' }));
